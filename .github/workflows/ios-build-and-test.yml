@@ -1,43 +1,35 @@
-name: iOS Build and Test
+name: GitHub Action
 
-on:
+on: 
   push:
-    branches:
+    branches:    
       - master
-      
+
 jobs:
-  build-and-test:
+  deploy:
+    name: GitHub Pipeline
     runs-on: macos-latest
-
+    
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      # Step 1: Checkout the repository
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: List repository structure
-      run: ls -R
+      # Step 2: Set up Xcode version 16.2
+      - name: Selecting Xcode Version
+        run: sudo xcode-select -switch /Applications/Xcode_16.2.app
 
-    - name: Set up Xcode environment
-      run: xcodebuild -version
+      # Step 3: Verify Xcode version
+      - name: Verify Xcode Version
+        run: /usr/bin/xcodebuild -version
 
-    - name: Install dependencies with CocoaPods
-      run: |
-        cd <correct-directory-path>
-        pod install
+      # Step 4: Clean the Xcode build
+      - name: Clean Build
+        run: |
+          xcodebuild clean -project Woloo.xcodeproj -scheme Woloo | xcpretty
 
-    - name: Build and Test
-      run: |
-        cd <correct-directory-path>
-        xcodebuild \
-          -workspace Woloo.xcworkspace \
-          -scheme Woloo \
-          -destination 'platform=iOS Simulator,name=iPhone 14' \
-          clean test
-      env:
-        CI: true
-
-    - name: Upload Test Results
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        name: xcode-test-results
-        path: ~/Library/Developer/Xcode/DerivedData/**/Logs/Test/*
+      # Step 5: Build and Test the project
+      - name: Build and Test
+        run: |
+          xcodebuild test -project Woloo.xcodeproj -scheme Woloo \
+          -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' | xcpretty -s
