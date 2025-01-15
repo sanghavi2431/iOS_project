@@ -31,8 +31,7 @@ jobs:
         run: |
           xcodebuild clean -project Woloo.xcodeproj -scheme Woloo | xcpretty
 
-      # Step 5: Build and Test the project
-      - name: Build and Test
+      # Step 5: Run JUnit tests (without simulator)
+      - name: Run JUnit Tests
         run: |
-          xcodebuild test -project Woloo.xcodeproj -scheme Woloo \
-          -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' | xcpretty -s
+          xcodebuild test -project Woloo.xcodeproj -scheme Woloo | xcpretty -s
