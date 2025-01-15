@@ -31,7 +31,14 @@ jobs:
         run: |
           xcodebuild clean -project Woloo.xcodeproj -scheme Woloo | xcpretty
 
-      # Step 5: Run JUnit tests (without simulator)
-      - name: Run JUnit Tests
+      # Step 5: Build and Test the project and produce JUnit results
+      - name: Build and Test
         run: |
-          xcodebuild test -project Woloo.xcodeproj -scheme Woloo | xcpretty -s
+          xcodebuild test -project Woloo.xcodeproj -scheme Woloo | xcpretty -r junit > result.xml
+          
+      # Step 6: Upload JUnit Test Results
+      - name: Upload Test Results to GitHub
+        uses: actions/upload-artifact@v3
+        with:
+          name: junit-test-results
+          path: result.xml
