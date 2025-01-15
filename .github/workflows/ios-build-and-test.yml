@@ -9,7 +9,7 @@ jobs:
   deploy:
     name: GitHub Pipeline
     runs-on: macos-latest
-    
+
     steps:
       # Step 1: Checkout the repository
       - name: Checkout
@@ -23,20 +23,25 @@ jobs:
       - name: Verify Xcode Version
         run: /usr/bin/xcodebuild -version
 
+      # Step 4: Install xcpretty (if not installed)
+      - name: Install xcpretty
+        run: sudo gem install xcpretty
+
+      # Step 5: List available simulators to check availability
       - name: List available simulators
         run: xcrun simctl list
 
-      # Step 4: Clean the Xcode build
+      # Step 6: Clean Build
       - name: Clean Build
         run: |
           xcodebuild clean -project Woloo.xcodeproj -scheme Woloo | xcpretty
 
-      # Step 5: Build and Test the project and produce JUnit results
-      - name: Build and Test
+      # Step 7: Build and Test with JUnit Report
+      - name: Build and Test with JUnit Report
         run: |
-          xcodebuild test -project Woloo.xcodeproj -scheme Woloo | xcpretty -r junit > result.xml
-          
-      # Step 6: Upload JUnit Test Results
+          xcodebuild test -project Woloo.xcodeproj -scheme Woloo -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' | xcpretty -r junit > result.xml
+      
+      # Step 8: Upload Test Results to GitHub
       - name: Upload Test Results to GitHub
         uses: actions/upload-artifact@v3
         with:
