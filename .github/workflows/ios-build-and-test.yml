@@ -1,0 +1,38 @@
+name: iOS Build and Test
+
+on:
+  push:
+    branches:
+      - master
+      
+jobs:
+  build-and-test:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Xcode environment
+      run: xcodebuild -version
+
+    - name: Install dependencies with CocoaPods
+      run: pod install
+      working-directory: woloo_ios-New_UI
+
+    - name: Build and Test
+      run: |
+        xcodebuild \
+          -workspace woloo_ios-New_UI/Woloo.xcworkspace \
+          -scheme Woloo \
+          -destination 'platform=iOS Simulator,name=iPhone 14' \
+          clean test
+      env:
+        CI: true
+
+    - name: Upload Test Results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: xcode-test-results
+        path: ~/Library/Developer/Xcode/DerivedData/**/Logs/Test/*
