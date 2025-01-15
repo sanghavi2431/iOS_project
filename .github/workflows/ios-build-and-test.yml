@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      
+
 jobs:
   build-and-test:
     runs-on: macos-latest
@@ -13,17 +13,22 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Xcode environment
+    - name: Select Xcode version
+      run: sudo xcode-select -switch /Applications/Xcode_16.2.app/Contents/Developer
+
+    - name: Verify Xcode version
       run: xcodebuild -version
 
     - name: Install dependencies with CocoaPods
-      run: pod install
-      working-directory: woloo_ios-New_UI
+      run: |
+        cd woloo_ios-New_UI
+        pod install
 
     - name: Build and Test
       run: |
+        cd woloo_ios-New_UI
         xcodebuild \
-          -workspace woloo_ios-New_UI/Woloo.xcworkspace \
+          -workspace Woloo.xcworkspace \
           -scheme Woloo \
           -destination 'platform=iOS Simulator,name=iPhone 14' \
           clean test
