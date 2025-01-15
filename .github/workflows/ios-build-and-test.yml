@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-
+      
 jobs:
   build-and-test:
     runs-on: macos-latest
@@ -13,20 +13,20 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Select Xcode version
-      run: sudo xcode-select -switch /Applications/Xcode_16.2.app/Contents/Developer
+    - name: List repository structure
+      run: ls -R
 
-    - name: Verify Xcode version
+    - name: Set up Xcode environment
       run: xcodebuild -version
 
     - name: Install dependencies with CocoaPods
       run: |
-        cd woloo_ios-New_UI
+        cd <correct-directory-path>
         pod install
 
     - name: Build and Test
       run: |
-        cd woloo_ios-New_UI
+        cd <correct-directory-path>
         xcodebuild \
           -workspace Woloo.xcworkspace \
           -scheme Woloo \
