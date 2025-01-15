@@ -23,6 +23,9 @@ jobs:
       - name: Verify Xcode Version
         run: /usr/bin/xcodebuild -version
 
+      - name: List available simulators
+        run: xcrun simctl list
+
       # Step 4: Clean the Xcode build
       - name: Clean Build
         run: |
