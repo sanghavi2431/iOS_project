@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="KGk-i7-Jjw" customClass="WolooDetailDirectionCell" customModule="Woloo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="348" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="348" height="40"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hX6-P9-LCZ">
+                        <rect key="frame" x="16" y="8" width="316" height="24"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="roD-DF-SBe">
+                                <rect key="frame" x="0.0" y="0.0" width="316" height="26"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0vl-DH-GyS">
+                                        <rect key="frame" x="0.0" y="0.0" width="97.333333333333329" height="26"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_route" translatesAutoresizingMaskIntoConstraints="NO" id="rhh-mn-dCd">
+                                                <rect key="frame" x="8" y="8" width="10" height="10"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="10" id="cdg-QM-rgO"/>
+                                                    <constraint firstAttribute="height" constant="10" id="myl-ch-gfT"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Navigate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPC-ta-Bjr">
+                                                <rect key="frame" x="26.000000000000004" y="7" width="63.333333333333343" height="12"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" name="Woloo_Yellow"/>
+                                        <constraints>
+                                            <constraint firstItem="YPC-ta-Bjr" firstAttribute="leading" secondItem="rhh-mn-dCd" secondAttribute="trailing" constant="8" id="06z-oh-s7h"/>
+                                            <constraint firstAttribute="trailing" secondItem="YPC-ta-Bjr" secondAttribute="trailing" constant="8" id="7HC-uc-ycW"/>
+                                            <constraint firstItem="YPC-ta-Bjr" firstAttribute="centerY" secondItem="rhh-mn-dCd" secondAttribute="centerY" id="IHc-QY-daG"/>
+                                            <constraint firstItem="rhh-mn-dCd" firstAttribute="top" secondItem="0vl-DH-GyS" secondAttribute="top" constant="8" id="MJX-gr-a89"/>
+                                            <constraint firstAttribute="bottom" secondItem="rhh-mn-dCd" secondAttribute="bottom" constant="8" id="mDX-Ac-Jvn"/>
+                                            <constraint firstItem="rhh-mn-dCd" firstAttribute="leading" secondItem="0vl-DH-GyS" secondAttribute="leading" constant="8" id="xn6-Y1-Btm"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jy7-Ey-YY2">
+                                        <rect key="frame" x="109.33333333333334" y="0.0" width="97.333333333333343" height="26"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shareBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="nlL-EM-i8K">
+                                                <rect key="frame" x="8.0000000000000142" y="8" width="10" height="10"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="10" id="cG7-0Q-dBv"/>
+                                                    <constraint firstAttribute="width" constant="10" id="yYE-UF-Mjn"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9C-c1-yHs">
+                                                <rect key="frame" x="26.000000000000018" y="7" width="63.333333333333343" height="12"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" name="Woloo_Yellow"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="nlL-EM-i8K" secondAttribute="bottom" constant="8" id="7Cf-eq-OQA"/>
+                                            <constraint firstItem="nlL-EM-i8K" firstAttribute="top" secondItem="Jy7-Ey-YY2" secondAttribute="top" constant="8" id="CGn-1B-u2H"/>
+                                            <constraint firstItem="m9C-c1-yHs" firstAttribute="centerY" secondItem="nlL-EM-i8K" secondAttribute="centerY" id="PhW-BZ-PBe"/>
+                                            <constraint firstItem="m9C-c1-yHs" firstAttribute="leading" secondItem="nlL-EM-i8K" secondAttribute="trailing" constant="8" id="Taw-2O-YIF"/>
+                                            <constraint firstItem="nlL-EM-i8K" firstAttribute="leading" secondItem="Jy7-Ey-YY2" secondAttribute="leading" constant="8" id="aJf-gn-Fhk"/>
+                                            <constraint firstAttribute="trailing" secondItem="m9C-c1-yHs" secondAttribute="trailing" constant="8" id="tuL-cC-7SA"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H2I-Ws-EUb">
+                                        <rect key="frame" x="218.66666666666666" y="0.0" width="97.333333333333343" height="26"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_bookmark" translatesAutoresizingMaskIntoConstraints="NO" id="HOp-0Q-Sma">
+                                                <rect key="frame" x="8" y="8" width="10" height="10"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="10" id="0oX-CL-DEj"/>
+                                                    <constraint firstAttribute="width" constant="10" id="zp7-hI-UNX"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmark" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SqG-tF-PZ8">
+                                                <rect key="frame" x="26.000000000000032" y="7" width="63.333333333333343" height="12"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" name="Woloo_Yellow"/>
+                                        <constraints>
+                                            <constraint firstItem="HOp-0Q-Sma" firstAttribute="leading" secondItem="H2I-Ws-EUb" secondAttribute="leading" constant="8" id="45R-3Y-QOP"/>
+                                            <constraint firstItem="SqG-tF-PZ8" firstAttribute="leading" secondItem="HOp-0Q-Sma" secondAttribute="trailing" constant="8" id="7TA-OI-rbY"/>
+                                            <constraint firstItem="HOp-0Q-Sma" firstAttribute="top" secondItem="H2I-Ws-EUb" secondAttribute="top" constant="8" id="9Fp-Mx-4x9"/>
+                                            <constraint firstAttribute="bottom" secondItem="HOp-0Q-Sma" secondAttribute="bottom" constant="8" id="Oc5-4U-2ct"/>
+                                            <constraint firstItem="SqG-tF-PZ8" firstAttribute="centerY" secondItem="HOp-0Q-Sma" secondAttribute="centerY" id="cnb-2R-nYx"/>
+                                            <constraint firstAttribute="trailing" secondItem="SqG-tF-PZ8" secondAttribute="trailing" constant="8" id="zXK-39-LQp"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="0vl-DH-GyS" secondAttribute="bottom" id="aGf-85-apG"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="roD-DF-SBe" firstAttribute="top" secondItem="hX6-P9-LCZ" secondAttribute="top" id="TSV-f7-dUH"/>
+                            <constraint firstItem="roD-DF-SBe" firstAttribute="leading" secondItem="hX6-P9-LCZ" secondAttribute="leading" id="mXS-ck-oET"/>
+                            <constraint firstAttribute="trailing" secondItem="roD-DF-SBe" secondAttribute="trailing" id="oTs-GR-wsm"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="hX6-P9-LCZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="A2q-6p-9sr"/>
+                    <constraint firstAttribute="trailing" secondItem="hX6-P9-LCZ" secondAttribute="trailing" constant="16" id="SVp-gq-bMt"/>
+                    <constraint firstItem="hX6-P9-LCZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="hQu-WA-OUc"/>
+                    <constraint firstAttribute="bottom" secondItem="hX6-P9-LCZ" secondAttribute="bottom" constant="8" id="ncF-GM-FuJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <point key="canvasLocation" x="62.595419847328245" y="19.014084507042256"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_bookmark" width="12" height="12"/>
+        <image name="icon_route" width="12" height="12"/>
+        <image name="shareBlackIcon" width="23" height="25"/>
+        <namedColor name="Woloo_Yellow">
+            <color red="1" green="0.93333333333333335" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
